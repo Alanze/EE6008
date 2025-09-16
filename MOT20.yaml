@@ -1,0 +1,5 @@
+train: datasets/MOT20-YOLO/images/train
+val: datasets/MOT20-YOLO/images/val
+
+nc: 1
+names: ['person']
