@@ -36,3 +36,9 @@ To view training results and loss plots, please check the `./run`
 ```bash
 yolo task=detect mode=train model=./yolov8n.pt data=".yaml" workers= epochs= batch=
 ```
+
+- Test the yolov8 model
+
+```bash
+yolo detect predict model= source=
+```
