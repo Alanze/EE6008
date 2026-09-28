@@ -5,6 +5,7 @@
 This repository contains the code and report for the project of EE6008 We use the model [yolov8](https://github.com/ultralytics/ultralytics)+Deepsort & ByteTrack for person detection and tracking
 
 ### Prerequisites
+
 - Linux or macOS
 - Python 3
 - CPU or NVIDIA GPU + CUDA CuDNN
@@ -19,7 +20,7 @@ pip install ultralytics
 
 ### Datasets
 
-Install [MOT20](https://motchallenge.net/data/MOT20/) and [MOT17](https://motchallenge.net/data/MOT17/) and change the datasets using 
+Install [MOT20](https://motchallenge.net/data/MOT20/) and [MOT17](https://motchallenge.net/data/MOT17/) and change the datasets using
 
 ```bash
 python data_process.py
