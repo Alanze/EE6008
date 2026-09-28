@@ -1,6 +1,8 @@
 import os
-import cv2
 import shutil
+
+import cv2
+
 
 def convert_gt_to_yolo(mot_root, output_root):
 
@@ -14,22 +16,21 @@ def convert_gt_to_yolo(mot_root, output_root):
         img_dir = os.path.join(seq_path, "img1")
         gt_file = os.path.join(seq_path, "gt", "gt.txt")
 
-
         out_img_dir = os.path.join(output_root, "images", "train", seq)
         out_lbl_dir = os.path.join(output_root, "labels", "train", seq)
         os.makedirs(out_img_dir, exist_ok=True)
         os.makedirs(out_lbl_dir, exist_ok=True)
 
-        sample_img = cv2.imread(os.path.join(img_dir, sorted(os.listdir(img_dir))[0]))
+        sample_img = cv2.imread(os.path.join(img_dir, min(os.listdir(img_dir))))
         imHeight, imWidth = sample_img.shape[:2]
 
         # gt.txt
-        with open(gt_file, "r") as f:
+        with open(gt_file) as f:
             lines = f.readlines()
 
         annotations = {}
         for line in lines:
-            frame, obj_id, x, y, w, h, conf, cls, vis = line.strip().split(",")
+            frame, _obj_id, x, y, w, h, conf, _cls, _vis = line.strip().split(",")
             frame, x, y, w, h = int(frame), float(x), float(y), float(w), float(h)
 
             if float(conf) < 0.5:
